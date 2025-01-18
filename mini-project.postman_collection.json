@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "347da866-3347-4e27-850f-c5fc243b015f",
+		"name": "Mini-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14195280"
+	},
+	"item": [
+		{
+			"name": "Get Book By ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/books/100000"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book Not found",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/books/585"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Authors by book ids",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/books/authors?bookIds=100000,100001,100002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"books",
+						"authors"
+					],
+					"query": [
+						{
+							"key": "bookIds",
+							"value": "100000,100001,100002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book By Title",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/books/title/Harry Potter and the Philosophers Stone"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book By ISBN",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/api/books/isbn/9780980200447"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"My new Book\",\r\n    \"publicationDate\": \"2009-10-26\",\r\n    \"author\": {\r\n        \"name\": \"Khalid AIT LAASRI\",\r\n        \"age\": 32,\r\n        \"followersNumber\": 550\r\n    },\r\n    \"type\": \"Religion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/books"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Book with invalid input",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"\",\r\n    \"publicationDate\": \"2009-10-26\",\r\n    \"author\": {\r\n        \"name\": \"Khalid AIT LAASRI\",\r\n        \"age\": 0,\r\n        \"followersNumber\": 550\r\n    },\r\n    \"type\": \"Religion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/books"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/books/100004"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"New tilte\",\r\n    \"publicationDate\": \"2012-10-26\",\r\n    \"author\": {\r\n        \"id\": 100000\r\n    },\r\n    \"type\": \"Fantasy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/books/100000"
+			},
+			"response": []
+		}
+	]
+}
